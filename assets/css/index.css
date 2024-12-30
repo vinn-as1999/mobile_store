@@ -17,18 +17,6 @@ body {
 
 a { text-decoration: none; color: var(--text-color) }
 
-.logo-background {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-
-    polygon {
-        text-shadow: 1px 1px 10px white;
-        color: #E4D550;
-    }
-}
-
 body.light {
     --bg-color: rgb(219, 219, 219);
     --text-color: black;
@@ -122,13 +110,13 @@ footer {
         }
     }
 
-    .images {
+    .front {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         width: 100vw;
-        height: 60vh;
+        height: 50vh;
 
         img {
             width: 100vw;
@@ -142,50 +130,56 @@ footer {
             top: 50;
             animation: appears 2s forwards;
         }
-    }
 
-    .basic-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 25vh;
-
-        .store-name {
+        .basic-info {
             display: flex;
-            font-size: 35px;
-            text-align: center;
-
-            .name { margin-left: 10px; }
-
-            i { 
-                text-shadow: 1px 1px 5px var(--main-color); 
-                color: var(--main-color);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 15vh;
+            width: 100vw;
+            z-index: 10;
+    
+            .store-name {
+                display: flex;
+                font-size: 35px;
+                text-align: center;
+    
+                .name { margin-left: 10px; }
+    
+                i { 
+                    text-shadow: 1px 1px 5px var(--main-color); 
+                    color: var(--main-color);
+                }
+            }
+    
+            .phrase {
+                font-size: 15px;
+                opacity: 0.8;
+                animation: appears 1s forwards;
+                color: var(--text-color);
+            }
+    
+            .line {
+                background-color: var(--text-color);
+                box-shadow: 1px 1px 20px white;
+                width: 40vh;
+                height: 0.5px;
+                margin: 5px;
+                animation: typing 0.5s forwards;
+            }
+    
+            .ctt {
+                margin: 5px;
+                i { padding: 3px; }
+    
+                i:hover { text-shadow: 1px 1px 5px white; }
             }
         }
+    }
 
-        .phrase {
-            font-size: 15px;
-            opacity: 0.8;
-            animation: appears 1s forwards;
-            color: var(--text-color);
-        }
-
-        .line {
-            background-color: var(--text-color);
-            box-shadow: 1px 1px 20px white;
-            width: 40vh;
-            height: 0.5px;
-            margin: 5px;
-            animation: typing 0.5s forwards;
-        }
-
-        .ctt {
-            margin: 5px;
-            i { padding: 3px; }
-
-            i:hover { text-shadow: 1px 1px 5px white; }
-        }
+    .featuring {
+        height: 30vh;
     }
 }
 
