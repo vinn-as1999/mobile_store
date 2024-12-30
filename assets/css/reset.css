@@ -1,0 +1,44 @@
+/* Remove margens e paddings padrão de todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Remove bullets e padding de listas */
+ul, ol {
+    list-style: none;
+}
+
+/* Zera estilos de links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Define uma base para elementos de texto */
+html {
+    font-size: 16px; /* Define o tamanho base */
+    line-height: 1.5; /* Define o espaçamento de linha */
+}
+
+/* Remove bordas de imagens e vídeos */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Remove bordas de botões */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+  
