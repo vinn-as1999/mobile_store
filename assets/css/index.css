@@ -120,7 +120,7 @@ footer {
         align-items: end;
         justify-content: center;
         width: 100vw;
-        height: 40vh;
+        height: 30vh;
 
         img {
             width: 100vw;
@@ -183,6 +183,13 @@ footer {
         }
     }
 
+    .featuring-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     #featuring {
         display: flex;
         flex-direction: row;
@@ -201,8 +208,8 @@ footer {
             width: 60vw;
 
             img {
-                width: 35vw;
-                animation: appears2 5s forwards;
+                width: 50vw;
+                animation: appears2 6s forwards;
             }
 
             h2 {
@@ -216,32 +223,44 @@ footer {
             div {
                 font-size: 16px;
                 text-align: center;
-                animation: appears2 10s forwards;
-            }
-
-            button {
-                font-size: 12px;
-                padding: 10px;
-                margin: 10px;
-                background-color: transparent;
-                color: var(--text-color);
-                border: solid 5px var(--main-color);
-                transition: ease-in-out 0.2s;
-                animation: appears2 2s forwards;
-            }
-
-            button:hover {
-                box-shadow: 1px 1px 8px var(--main-color);
-                text-shadow: 1px 1px 3px white;
+                animation: appears2 8s forwards;
             }
         }
 
         .arrow-left, .arrow-right {
+            width: 40px;
             stroke: var(--main-color);
             fill: transparent;
             text-shadow: 1px 1px 10px var(--main-color);
             filter: drop-shadow(0 0 10px var(--main-color));
+            transition: ease-in-out 0.3s;
         }
+
+        .arrow-left:hover {
+            filter: drop-shadow(0 0 30px var(--main-color));
+            transform: translateX(-5px);
+        }
+
+        .arrow-right:hover {
+            filter: drop-shadow(0 0 30px var(--main-color));
+            transform: translateX(5px);
+        }
+    }
+
+    .feat-buy {
+        font-size: 12px;
+        padding: 10px;
+        margin: 10px;
+        background-color: transparent;
+        color: var(--text-color);
+        border: solid 5px var(--main-color);
+        transition: ease-in-out 0.2s;
+        animation: appears2 2s forwards;
+    }
+
+    .feat-buy:hover {
+        box-shadow: 1px 1px 8px var(--main-color);
+        text-shadow: 1px 1px 3px white;
     }
 }
 

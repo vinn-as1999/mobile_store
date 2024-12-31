@@ -18,7 +18,7 @@ function changeMode() {
 
 
 function featuringProducts(number) {
-    const featuring = document.getElementById('featuring');
+    const featuring = document.getElementById('feat-display');
     
     if (number === undefined) number = 0;
 
@@ -35,25 +35,18 @@ function featuringProducts(number) {
     const img = document.createElement('img');
     const title = document.createElement('h2');
     const div = document.createElement('div');
-    const button = document.createElement('button');
-    const leftV = document.createElement('div');
-    const rightV = document.createElement('div');
+    const leftV = document.querySelector('.arrow-left');
+    const rightV = document.querySelector('.arrow-right');
 
     newElement.classList.add('featuring-product');
     img.src = visibleProduct.image;
     title.innerText = visibleProduct.name;
     div.innerText = `R$ ${visibleProduct.price}`;
-    button.innerText = 'COMPRAR';
 
-    leftV.innerHTML = `
-        <svg class="arrow-left" xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24"><path d="M17.815 4.843L5.888 12l11.927 7.157-2.982-7.157 2.982-7.157zm4.185-4.843l-5 12 5 12-20-12 20-12z"/></svg>`;
-    
-    rightV.innerHTML = `
-        <svg class="arrow-right" xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24"><path d="M6.185 4.843l11.927 7.157-11.927 7.157 2.982-7.157-2.982-7.157zm-4.185-4.843l5 12-5 12 20-12-20-12z"/></svg>`;
 
-    newElement.append(img, title, div, button);
+    newElement.append(img, title, div);
     featuring.innerHTML = '';
-    featuring.append(leftV, newElement, rightV);
+    featuring.append(newElement);
 
     leftV.addEventListener('click', () => {
         number = (number - 1 + list.length) % list.length;
