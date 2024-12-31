@@ -8,7 +8,8 @@ export const categories = {
                 Câmera principal de 48 MP com capacidades profissionais (RAW, vídeo 4K).
                 Chip A17 Pro, o mais avançado da Apple.
             `,
-            price: 8639
+            price: 8639,
+            image: './assets/img/iPhone15.png'
         },
         {
             name: "iPhone 14 Plus",
@@ -18,7 +19,8 @@ export const categories = {
                 Chip A15 Bionic com GPU de 5 núcleos.
                 Bateria com duração de até 26 horas de vídeo.
             `,
-            price: 5999
+            price: 5999,
+            image: './assets/img/iPhone14.png'
         },
         {
             name: "iPhone SE (2022)",
@@ -28,7 +30,8 @@ export const categories = {
                 Câmera única de 12 MP com HDR 4.
                 Design compacto e botão Home com Touch ID.
             `,
-            price: 3499
+            price: 3499,
+            image: './assets/img/iPhone-SE-2022-White.webp'
         }
     ],
     Samsung: [
@@ -40,7 +43,8 @@ export const categories = {
                 Processador Snapdragon 8 Gen 2.
                 Bateria de 5000mAh e suporte a S Pen.
             `,
-            price: 7599
+            price: 7599,
+            image: './assets/img/galaxys23.webp'
         },
         {
             name: "Samsung Galaxy A54 5G",
@@ -50,7 +54,8 @@ export const categories = {
                 Processador Exynos 1380.
                 Bateria de 5000mAh com carregamento rápido.
             `,
-            price: 2399
+            price: 2399,
+            image: './assets/img/galaxya54.webp'
         },
         {
             name: "Samsung Galaxy M14",
@@ -60,7 +65,8 @@ export const categories = {
                 Processador Exynos 1330.
                 Bateria gigante de 6000mAh.
             `,
-            price: 1299
+            price: 1299,
+            image: './assets/img/galaxym14.webp'
         }
     ],
     ASUS: [
@@ -72,7 +78,8 @@ export const categories = {
                 Processador Snapdragon 8 Gen 2 e até 16GB de RAM.
                 Alto-falantes estéreo e iluminação RGB personalizável.
             `,
-            price: 7499
+            price: 7499,
+            image: './assets/img/asus_rog.webp'
         },
         {
             name: "ASUS Zenfone 10",
@@ -82,7 +89,8 @@ export const categories = {
                 Câmera principal de 50 MP com estabilização gimbal.
                 Bateria de 4300mAh com carregamento rápido e sem fio.
             `,
-            price: 5499
+            price: 5499,
+            image: './assets/img/asus.png'
         },
         {
             name: "ASUS ROG Phone 6",
@@ -92,7 +100,8 @@ export const categories = {
                 Sistema de resfriamento interno e modo X para jogos.
                 Bateria de 6000mAh para sessões prolongadas.
             `,
-            price: 5999
+            price: 5999,
+            image: './assets/img/rog6.png'
         }
     ]
 };
