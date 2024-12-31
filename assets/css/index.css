@@ -21,19 +21,23 @@ body.light {
     --bg-color: rgb(219, 219, 219);
     --text-color: black;
     --main-color: #E4D550;
-    --store-name: grey;
+    --store-name: rgb(241, 241, 241);
 
     .dropdown div {
         background-color: white;
     }
+    
+    .store-name {
+        color: grey;
+    }
 
     .phone1 {
-        top: 50;
-        animation: appears2 2s forwards;
+        animation: appears 2s forwards;
     }
 
     .phrase {
-        animation: appears2 2s forwards;
+        color: rgb(88, 88, 88) !important;
+        animation: appears2 2s forwards !important;
     }
 }
 
@@ -67,7 +71,7 @@ footer {
         justify-content: center;
         height: 10vh;
         font-size: 30px;
-        color: var(--main-color);
+        color: var(--text-color);
         text-shadow: 1px 1px 35px var(--main-color);
         animation: appears2 5s forwards;
     }
@@ -121,6 +125,7 @@ footer {
         img {
             width: 100vw;
             position: absolute;
+            top: 20%;
             mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
             -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
             z-index: 0;
