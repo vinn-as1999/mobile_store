@@ -17,8 +17,11 @@ function changeMode() {
 };
 
 
+// função que exibe os novos produtos
 function featuringProducts(number) {
     const featuring = document.getElementById('feat-display');
+
+    if (!featuring) return;
     
     if (number === undefined) number = 0;
 
@@ -43,7 +46,6 @@ function featuringProducts(number) {
     title.innerText = visibleProduct.name;
     div.innerText = `R$ ${visibleProduct.price}`;
 
-
     newElement.append(img, title, div);
     featuring.innerHTML = '';
     featuring.append(newElement);
@@ -57,7 +59,23 @@ function featuringProducts(number) {
         number = (number + 1) % list.length;
         featuringProducts(number);
     });
-}
+};
+
+
+// função que exibe as categorias existentes abaixo da nav de produtos
+function existingCategories() {
+    const products = Object.keys(categories);
+    const dropdowm = document.querySelector('.dropdown');
+
+    if (!dropdowm) return;
+
+    for (let cat in products) {
+        const div = document.createElement('div');
+        div.innerText = String(products[cat]);
+        dropdowm.appendChild(div);
+    }
+};
+
 
 
 
@@ -69,6 +87,7 @@ window.onload = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    existingCategories();
     featuringProducts();
 });
 
