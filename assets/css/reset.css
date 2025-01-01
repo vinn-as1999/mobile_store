@@ -25,6 +25,7 @@ html {
 /* Remove bordas de imagens e vídeos */
 img, video {
     max-width: 100%;
+    height: 100%;
     height: auto;
     display: block;
 }

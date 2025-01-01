@@ -63,10 +63,9 @@ function featuringProducts(number) {
 
 
 // função que exibe as categorias existentes abaixo da nav de produtos
-function existingCategories() {
+function displayCategories() {
     const products = Object.keys(categories);
     const dropdowm = document.querySelector('.dropdown');
-
     if (!dropdowm) return;
 
     for (let cat in products) {
@@ -76,8 +75,41 @@ function existingCategories() {
     }
 };
 
+// mostra os produtos na tela
+function displayProducts() {
+    const existingProducts = document.querySelector('.existing-products');
+    if (!existingProducts) return;
 
+    existingProducts.innerHTML = '';
 
+    Object.keys(categories).forEach(key => {
+        for (let item of categories[key]) {
+            const article = document.createElement('article');
+            const div1 = document.createElement('div');
+            div1.classList.add('list-prod');
+            const img = document.createElement('img');
+            const div2 = document.createElement('div');
+            const div3 = document.createElement('div');
+            const button = document.createElement('button');
+
+            button.addEventListener('click', () => {
+                localStorage.setItem('selected', item.name)
+                window.location.href = 'shopping.html'
+            });
+
+            img.src = item.image;
+            img.title = item.name;
+            div2.innerText = `R$ ${item.price}`;
+            button.innerText = 'COMPRAR';
+
+            div1.append(img, div2);
+            div3.appendChild(button);
+            article.append(div1, div3);
+
+            existingProducts.appendChild(article);
+        }
+    });
+};
 
 window.changeMode = changeMode;
 
@@ -87,7 +119,8 @@ window.onload = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    existingCategories();
+    displayCategories();
+    displayProducts();
     featuringProducts();
 });
 
