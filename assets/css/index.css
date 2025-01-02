@@ -39,6 +39,10 @@ body.light {
         color: rgb(88, 88, 88) !important;
         animation: appears2 2s forwards !important;
     }
+
+    select option {
+        background-color: white !important;
+    }
 }
 
 .store-name {
@@ -112,6 +116,22 @@ footer {
                 display: block;
             }
         }
+    }
+
+    button {
+        margin: 5px;
+        padding: 5px 15px;
+        font-size: 10px;
+        background-color: transparent;
+        color: var(--text-color);
+        border: solid 3px var(--main-color);
+        transition: ease-in-out 0.15s;
+        animation: appears2 2s linear;
+    }
+
+    button:hover {
+        text-shadow: 0 0 1px white;
+        box-shadow: 0 0 5px var(--main-color);
     }
 
     .front {
@@ -248,23 +268,6 @@ footer {
         }
     }
 
-    .feat-buy {
-        font-size: 12px;
-        padding: 10px;
-        margin: 10px;
-        background-color: transparent;
-        color: var(--text-color);
-        border: solid 5px var(--main-color);
-        transition: ease-in-out 0.2s;
-        animation: appears2 2s forwards;
-    }
-
-    .feat-buy:hover {
-        box-shadow: 0 0 8px var(--main-color);
-        text-shadow: 0 0 3px white;
-    }
-
-
     .input-section {
         display: flex;
         align-items: center;
@@ -312,7 +315,7 @@ footer {
             animation: appears2 1s linear;
 
             img {
-                width: 25vw;
+                width: 100px;
             }
 
             div {
@@ -320,21 +323,94 @@ footer {
                 margin-top: 10px;
             }
         }
+    }
 
-        button {
-            margin: 5px;
-            padding: 5px 15px;
-            font-size: 10px;
-            background-color: transparent;
-            color: var(--text-color);
-            border: solid 3px var(--main-color);
-            transition: ease-in-out 0.15s;
-            animation: appears2 2s linear;
+    .selected-main {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        height: 75vh;
+        font-family: Arial, Helvetica, sans-serif;
+
+        .sel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .prod-name {
+                text-align: center;
+                font-size: 25px;
+                text-shadow: 0 0 10px white;
+                animation: arrives 0.3s linear;
+            }
+
+            img { 
+                width: 60vw; 
+                animation: appears2 2s linear;
+            }
+
+            .carrossel {
+                border: solid 3px var(--main-color);
+                width: 40vw;
+                height: 6vh;
+                margin: 15px 0px;
+                animation: appears2 5s linear;
+
+            }
+
+            .inputs {
+                display: flex;
+                flex-direction: column;
+
+                input, select {
+                    background-color: transparent;
+                    padding: 3px;
+                    border: solid 1px var(--main-color);
+                    color: var(--text-color);
+                    animation: appears2 5s linear;
+                }
+
+                select option {
+                    background-color: black;
+                }
+            }
         }
 
-        button:hover {
-            text-shadow: 0 0 1px white;
-            box-shadow: 0 0 5px var(--main-color);
+        .true-price {
+            color: grey;
+            font-style: italic;
+            text-decoration: line-through;
+            text-decoration-color: var(--text-color);
+        }
+
+        .new-price {
+            font-size: 25px;
+            text-shadow: 0 0 5px white;
+            animation: appears2 5s linear;
+        }
+
+        .dscpt {
+            font-size: 15px;
+            color: grey;
+            animation: appears2 3s linear;
+        }
+
+        .division {
+            margin-top: 3vh;
+            width: 35vw;
+            height: 1px;
+            background-color: var(--text-color);
+            
+        }
+
+        .last-info {
+            color: grey;
+            margin: 15px;
+
+            i {
+                color: rgb(53, 250, 53);
+                text-shadow: 0 0 5px;
+            }
         }
     }
 }
@@ -366,4 +442,9 @@ footer {
 @keyframes down {
     from { margin-top: 5px; }
     to { margin-top: 0; }
+}
+
+@keyframes arrives {
+    from { transform: translateX(-100px); }
+    to { transform: translateX(0px); }
 }

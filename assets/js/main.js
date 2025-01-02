@@ -1,5 +1,7 @@
 import { categories } from "./categories.js";
 
+
+
 // dark mode
 function changeMode() {
     const theme = localStorage.getItem('theme');
@@ -15,6 +17,8 @@ function changeMode() {
         localStorage.setItem('theme', 'dark');
     }
 };
+
+
 
 
 // função que exibe os novos produtos
@@ -62,6 +66,8 @@ function featuringProducts(number) {
 };
 
 
+
+
 // função que exibe as categorias existentes abaixo da nav de produtos
 function displayCategories() {
     const products = Object.keys(categories);
@@ -74,6 +80,9 @@ function displayCategories() {
         dropdowm.appendChild(div);
     }
 };
+
+
+
 
 // mostra os produtos na tela
 function displayProducts() {
@@ -93,7 +102,7 @@ function displayProducts() {
             const button = document.createElement('button');
 
             button.addEventListener('click', () => {
-                localStorage.setItem('selected', item.name)
+                localStorage.setItem('selected', JSON.stringify(item))
                 window.location.href = 'shopping.html'
             });
 
@@ -111,6 +120,73 @@ function displayProducts() {
     });
 };
 
+
+
+function displaySelected() {
+    const selected = JSON.parse(localStorage.getItem('selected'));
+    const img = document.querySelector('.selected-img');
+    const info = document.querySelector('.selected-info');
+
+    if (!img || !info) return;
+
+    img.innerHTML = `
+        <article class="sel-container">
+            <h1 class="prod-name">${selected.name}</h1>
+            <div class="sel-img">
+                <img src="${selected.image}">
+            </div>
+            <div class="carrossel">
+                <!-- CARROSSEL -->
+            </div>
+            <div class="inputs">
+                <select class="sel-gigabyte">
+                    <option disabled selected>Definir Gigabyte</option>
+                    <option>64 GB</option>
+                    <option>128 GB</option>
+                    <option>512 GB</option>
+                </select>
+                <select class="sel-color">
+                    <option disabled selected>Escolha a cor</option>
+                    <option>Branco</option>
+                    <option>Magenta</option>
+                    <option>Turquesa</option>
+                    <option>Cerúleo</option>
+                    <option>Preto</option>
+                </select>
+                <div class="buy">
+                    <input type="number" min="1" max="5" value="1">
+                    <button>COMPRAR</button>
+                </div>
+            </div>
+        </article>
+    `
+
+    info.innerHTML = `
+        <article>
+            <h1>Valor do Produto</h1>
+            <div>
+                <div class="true-price">R$ ${selected.price + 500}</div>
+                <div class="new-price">R$ ${selected.price}</div>
+            </div>
+            <h1>Detalhes Gerais</h1>
+            <div class="dscpt">
+                ${selected.description}
+            </div>
+            <div class="division"></div>
+            <div class="last-info">
+                <i class="fa-regular fa-circle-check"></i>
+                Garantia de 6 meses!
+            </div>
+            <div class="last-info">
+                <i class="fa-regular fa-circle-check"></i>
+                Devolução do dinheiro!
+            </div>
+        </article>
+    `
+};
+
+
+
 window.changeMode = changeMode;
 
 window.onload = () => {
@@ -121,6 +197,7 @@ window.onload = () => {
 document.addEventListener('DOMContentLoaded', () => {
     displayCategories();
     displayProducts();
+    displaySelected();
     featuringProducts();
 });
 
