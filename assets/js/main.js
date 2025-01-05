@@ -19,8 +19,6 @@ function changeMode() {
 };
 
 
-
-
 // função que exibe os novos produtos
 function featuringProducts(number) {
     const featuring = document.getElementById('feat-display');
@@ -66,22 +64,44 @@ function featuringProducts(number) {
 };
 
 
-
-
-// função que exibe as categorias existentes abaixo da nav de produtos
+// função que exibe os produtos
 function displayCategories() {
     const products = Object.keys(categories);
-    const dropdowm = document.querySelector('.dropdown');
-    if (!dropdowm) return;
 
     for (let cat in products) {
         const div = document.createElement('div');
         div.innerText = String(products[cat]);
-        dropdowm.appendChild(div);
+        
     }
 };
 
 
+function createElements(item) {
+    const existingProducts = document.querySelector('.existing-products');
+    const article = document.createElement('article');
+    const div1 = document.createElement('div');
+    div1.classList.add('list-prod');
+    const img = document.createElement('img');
+    const div2 = document.createElement('div');
+    const div3 = document.createElement('div');
+    const button = document.createElement('button');
+
+    button.addEventListener('click', () => {
+        localStorage.setItem('selected', JSON.stringify(item))
+        window.location.href = 'shopping.html'
+    });
+
+    img.src = item.image;
+    img.title = item.name;
+    div2.innerText = `R$ ${item.price}`;
+    button.innerText = 'COMPRAR';
+
+    div1.append(img, div2);
+    div3.appendChild(button);
+    article.append(div1, div3);
+
+    existingProducts.appendChild(article);
+};
 
 
 // mostra os produtos na tela
@@ -93,29 +113,7 @@ function displayProducts() {
 
     Object.keys(categories).forEach(key => {
         for (let item of categories[key]) {
-            const article = document.createElement('article');
-            const div1 = document.createElement('div');
-            div1.classList.add('list-prod');
-            const img = document.createElement('img');
-            const div2 = document.createElement('div');
-            const div3 = document.createElement('div');
-            const button = document.createElement('button');
-
-            button.addEventListener('click', () => {
-                localStorage.setItem('selected', JSON.stringify(item))
-                window.location.href = 'shopping.html'
-            });
-
-            img.src = item.image;
-            img.title = item.name;
-            div2.innerText = `R$ ${item.price}`;
-            button.innerText = 'COMPRAR';
-
-            div1.append(img, div2);
-            div3.appendChild(button);
-            article.append(div1, div3);
-
-            existingProducts.appendChild(article);
+            createElements(item)
         }
     });
 };
@@ -126,17 +124,42 @@ function displaySelected() {
     const selected = JSON.parse(localStorage.getItem('selected'));
     const img = document.querySelector('.selected-img');
     const info = document.querySelector('.selected-info');
+    const details = document.querySelector('.details');
 
-    if (!img || !info) return;
+    if (!img || !info || !selected) return;
 
     img.innerHTML = `
         <article class="sel-container">
-            <h1 class="prod-name">${selected.name}</h1>
             <div class="sel-img">
+                <h1 class="prod-name">${selected.name}</h1>
                 <img src="${selected.image}">
             </div>
-            <div class="carrossel">
-                <!-- CARROSSEL -->
+        </article>
+    `
+
+    info.innerHTML = `
+        <article>
+            <div>
+                <div class="true-price">R$ ${selected.price + 500}</div>
+                <div class="new-price">R$ ${selected.price}</div>
+            </div>
+            <div class="division"></div>
+            <div class="last-info">
+                <i class="fa-regular fa-circle-check"></i>
+                Garantia de 6 meses!
+            </div>
+            <div class="last-info">
+                <i class="fa-regular fa-circle-check"></i>
+                Parcele em até 18x s/ juros!
+            </div>
+        </article>
+    `
+
+    details.innerHTML = `
+        <article>
+            <h1>Detalhes Gerais</h1>
+            <div class="dscpt">
+                ${selected.description}
             </div>
             <div class="inputs">
                 <select class="sel-gigabyte">
@@ -160,30 +183,32 @@ function displaySelected() {
             </div>
         </article>
     `
-
-    info.innerHTML = `
-        <article>
-            <h1>Valor do Produto</h1>
-            <div>
-                <div class="true-price">R$ ${selected.price + 500}</div>
-                <div class="new-price">R$ ${selected.price}</div>
-            </div>
-            <h1>Detalhes Gerais</h1>
-            <div class="dscpt">
-                ${selected.description}
-            </div>
-            <div class="division"></div>
-            <div class="last-info">
-                <i class="fa-regular fa-circle-check"></i>
-                Garantia de 6 meses!
-            </div>
-            <div class="last-info">
-                <i class="fa-regular fa-circle-check"></i>
-                Devolução do dinheiro!
-            </div>
-        </article>
-    `
 };
+
+
+
+function displaySearch() {
+    const input = document.querySelector('#search-prod');
+    const existingProducts = document.querySelector('.existing-products');
+    if (!input || !existingProducts) return;
+
+    input.addEventListener('input', event => {
+        const inputValue = event.target.value.toLowerCase();
+
+        existingProducts.innerHTML = '';
+
+        const list = Object.keys(categories).flatMap(brand => {
+            return categories[brand].filter(product => 
+                product.name.toLowerCase().includes(inputValue)
+            );
+        });
+
+        for (let item of list) {
+            createElements(item)
+        }
+    });
+};
+
 
 
 
@@ -198,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayCategories();
     displayProducts();
     displaySelected();
+    displaySearch();
     featuringProducts();
 });
 
