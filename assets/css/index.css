@@ -1,0 +1,59 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+            width: 3vw; 
+            text-align: center;
+            cursor: pointer;
+            transition: ease-in-out 0.3s;
+
+            i {font-size: 50px;}
+        }
+
+        div:hover {
+            text-shadow: 0 0 5px;
+        }
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+
+        .navDiv {
+            padding: 10px;
+            cursor: pointer;
+            border-right: solid 2px var(--main-color);
+        }
+
+        .navDiv:hover {
+            text-shadow: 0 0 5px;
+        }
+    }
+
+    button {
+        height: 8vh;
+        width: 10vw;
+    }
+}
+
+button {
+    background-color: transparent;
+    border: solid 3px var(--main-color);
+    color: var(--text-color);
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
+}
+
+button:hover {
+    text-shadow: 0 0 10px white;
+    box-shadow: 0 0 10px var(--main-color);
+}
