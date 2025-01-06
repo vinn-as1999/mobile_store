@@ -14,15 +14,15 @@ body {
     color: var(--text-color);
     font-family: Raleway, sans-serif;
     min-height: 100vh;
-    height: 100vh;
+    height: 100%;
 }
 
 a { text-decoration: none; color: var(--text-color) }
 
 body.light {
-    --bg-color: rgb(219, 219, 219);
+    --bg-color: linear-gradient(to bottom, white, rgb(165, 165, 165));
     --text-color: black;
-    --main-color: #E4D550;
+    --main-color: #3d3f9b;
     --store-name: rgb(241, 241, 241);
     
     .store-name {
@@ -101,7 +101,7 @@ footer {
         color: var(--text-color);
         border: solid 3px var(--main-color);
         transition: ease-in-out 0.15s;
-        animation: appears2 2s linear;
+        animation: appears2 1s linear;
     }
 
     button:hover {
@@ -185,6 +185,11 @@ footer {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        .feat-title {
+            color: var(--main-color);
+            text-shadow: 0 0 3px var(--main-color);
+        }
     }
 
     #featuring {
@@ -223,6 +228,10 @@ footer {
                 font-size: 16px;
                 text-align: center;
                 animation: appears2 8s forwards;
+            }
+
+            button {
+                margin: 25px !important;
             }
         }
 
