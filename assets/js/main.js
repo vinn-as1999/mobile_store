@@ -42,13 +42,17 @@ function featuringProducts(number) {
     const div = document.createElement('div');
     const leftV = document.querySelector('.arrow-left');
     const rightV = document.querySelector('.arrow-right');
+    const button = document.createElement('button');
+    const h2 = document.createElement('h2')
 
     newElement.classList.add('featuring-product');
     img.src = visibleProduct.image;
     title.innerText = visibleProduct.name;
     div.innerText = `R$ ${visibleProduct.price}`;
+    button.innerText = 'COMPRAR'
+    h2.innerText = 'LANÇAMENTOS'
 
-    newElement.append(img, title, div);
+    newElement.append(h2, img, title, div, button);
     featuring.innerHTML = '';
     featuring.append(newElement);
 

@@ -13,6 +13,8 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     font-family: Raleway, sans-serif;
+    min-height: 100vh;
+    height: 100vh;
 }
 
 a { text-decoration: none; color: var(--text-color) }
@@ -62,6 +64,7 @@ footer {
     
     color: grey;
     font-size: 10px;
+    margin: 50px 0px;
 }
 
 @media (max-width: 760px) {
@@ -109,10 +112,10 @@ footer {
     .front {
         display: flex;
         flex-direction: row;
-        align-items: end;
+        align-items: center;
         justify-content: center;
         width: 100vw;
-        height: 30vh;
+        height: 60vh;
 
         img {
             width: 100vw;
@@ -130,12 +133,14 @@ footer {
 
         .basic-info {
             display: flex;
+            position: absolute;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 15vh;
             width: 100vw;
             z-index: 10;
+            top: 40%;
     
             .store-name {
                 display: flex;
@@ -197,7 +202,8 @@ footer {
             align-items: center;
             justify-content: center;
             font-family: Arial, Helvetica, sans-serif;
-            width: 60vw;
+            width: 70vw;
+            height: 70vh;
 
             img {
                 width: 50vw;
@@ -338,12 +344,6 @@ footer {
                 animation: appears2 5s linear;
             }
     
-            .dscpt {
-                font-size: 15px;
-                color: grey;
-                animation: appears2 3s linear;
-            }
-    
             .division {
                 margin-top: 3vh;
                 width: 30vw;
@@ -366,6 +366,13 @@ footer {
 
     .details {
         margin: 25px;
+        
+        .dscpt {
+            padding: 5px;
+            font-size: 12px;
+            color: grey;
+            animation: appears2 3s linear;
+        }
     }
 
     .inputs {
@@ -388,9 +395,15 @@ footer {
     }
 }
 
+
+
+/*
+    ANIMATIONS
+*/
+
 @keyframes typing {
     from { width: 0; }
-    to { width: 65%; }
+    to { width: 60%; }
 }
 
 @keyframes blink {
