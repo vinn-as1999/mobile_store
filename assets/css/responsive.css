@@ -79,6 +79,16 @@ footer {
         animation: appears2 5s forwards;
     }
 
+    header {
+        flex-direction: column;
+        
+        i {font-size: 30px !important}
+
+        button {
+            display: none !important;
+        }
+    }
+
     nav {
         display: flex;
         align-items: center;
@@ -293,7 +303,7 @@ footer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: end;
+            justify-content: center;
             width: 22vw;
             height: 150px;
             margin: 5px;
