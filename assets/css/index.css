@@ -1,5 +1,5 @@
 :root {
-    --bg-color: linear-gradient(to left, black, rgb(18, 18, 36));
+    --bg-color: linear-gradient(to bottom, black, rgb(18, 18, 36));
     --text-color: white;
     --main-color: rgb(114, 165, 241);
     --store-name: rgb(207, 207, 207);
@@ -30,7 +30,7 @@ body.light {
     }
 
     .phone1 {
-        animation: appears 2s forwards;
+        animation: appears2 2s forwards;
     }
 
     .phrase {
@@ -45,7 +45,7 @@ body.light {
 
 span {
     color: var(--main-color);
-    font-size: 55px;
+    font-size: 45px;
     text-shadow: 0 0 10px;
 }
 
@@ -124,7 +124,7 @@ button:hover {
     }
 
     .phone1 {
-        animation: appears 1s linear;
+        animation: appears2 2s linear;
     }
 
     .basic-info {
@@ -132,14 +132,14 @@ button:hover {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 50vh;
-        width: 46vw;
+        height: 100vh;
+        width: 40vw;
         user-select: none;
 
         .store-name {
             display: flex;
             align-items: center;
-            font-size: 55px;
+            font-size: 45px;
 
             .name { margin-left: 10px; }
     
@@ -169,6 +169,7 @@ button:hover {
         .ctt {
             font-size: 25px;
             margin: 5px;
+            cursor: pointer;
             
             i { padding: 3px; transition: ease-in-out 0.3s;}
 
