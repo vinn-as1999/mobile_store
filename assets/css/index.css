@@ -1,3 +1,54 @@
+:root {
+    --bg-color: linear-gradient(to left, black, rgb(18, 18, 36));
+    --text-color: white;
+    --main-color: rgb(114, 165, 241);
+    --store-name: rgb(207, 207, 207);
+}
+
+* {
+    z-index: 10;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: Raleway, sans-serif;
+    min-height: 100vh;
+    height: 100%;
+}
+
+a { text-decoration: none; color: var(--text-color) }
+
+body.light {
+    --bg-color: linear-gradient(to bottom, white, rgb(165, 165, 165));
+    --text-color: black;
+    --main-color: #3d3f9b;
+    --store-name: rgb(241, 241, 241);
+    
+    .store-name {
+        color: grey;
+    }
+
+    .phone1 {
+        animation: appears 2s forwards;
+    }
+
+    .phrase {
+        color: rgb(88, 88, 88) !important;
+        animation: appears2 2s forwards !important;
+    }
+
+    select option {
+        background-color: white !important;
+    }
+}
+
+span {
+    color: var(--main-color);
+    font-size: 55px;
+    text-shadow: 0 0 10px;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -36,7 +87,7 @@ header {
         }
 
         .navDiv:hover {
-            text-shadow: 0 0 5px;
+            text-shadow: 0 0 5px white;
         }
     }
 
@@ -62,4 +113,66 @@ button:hover {
 
 .front {
     display: flex;
+    justify-content: space-between;
+    align-items: start;
+    
+    img {
+        width: 50vw;
+        opacity: 1;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+        mask-repeat: no-repeat;
+    }
+
+    .phone1 {
+        animation: appears 1s linear;
+    }
+
+    .basic-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        width: 46vw;
+        user-select: none;
+
+        .store-name {
+            display: flex;
+            align-items: center;
+            font-size: 55px;
+
+            .name { margin-left: 10px; }
+    
+            i { 
+                font-size: 30px;
+                text-shadow: 0 0 5px var(--main-color); 
+                color: var(--main-color);
+            }
+        }
+
+        .phrase {
+            font-size: 15px;
+            opacity: 0.8;
+            animation: appears 1s forwards;
+            color: var(--text-color);
+        }
+
+        .line {
+            background-color: var(--text-color);
+            box-shadow: 0 0 20px white;
+            width: 40vh;
+            height: 0.5px;
+            margin: 5px;
+            animation: typing 0.5s forwards;
+        }
+
+        .ctt {
+            font-size: 25px;
+            margin: 5px;
+            
+            i { padding: 3px; transition: ease-in-out 0.3s;}
+
+            i:hover { text-shadow: 0 0 5px white; }
+        }
+    }
 }
