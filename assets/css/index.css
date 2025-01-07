@@ -18,7 +18,7 @@ header {
         }
 
         div:hover {
-            text-shadow: 0 0 5px;
+            text-shadow: 0 0 10px;
         }
     }
 
@@ -32,6 +32,7 @@ header {
             padding: 10px;
             cursor: pointer;
             border-right: solid 2px var(--main-color);
+            transition: ease-in-out 0.3s;
         }
 
         .navDiv:hover {
@@ -54,6 +55,6 @@ button {
 }
 
 button:hover {
-    text-shadow: 0 0 10px white;
+    text-shadow: 0 0 15px white;
     box-shadow: 0 0 10px var(--main-color);
 }
