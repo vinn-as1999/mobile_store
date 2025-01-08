@@ -1,5 +1,5 @@
 :root {
-    --bg-color: linear-gradient(to bottom, black, rgb(18, 18, 36));
+    --bg-color: linear-gradient(to top, black, rgb(24, 24, 48));
     --text-color: white;
     --main-color: rgb(114, 165, 241);
     --store-name: rgb(207, 207, 207);
@@ -53,6 +53,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    animation: appears2 5s forwards;
 
     .logo {
         display: flex;
@@ -69,7 +70,7 @@ header {
         }
 
         div:hover {
-            text-shadow: 0 0 10px;
+            filter: drop-shadow(0 0 15px white);
         }
     }
 
@@ -117,8 +118,7 @@ button:hover {
     align-items: start;
     
     img {
-        width: 50vw;
-        opacity: 1;
+        width: 40rem;
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
         mask-repeat: no-repeat;
     }
