@@ -19,6 +19,8 @@ footer {
 }
 
 @media (max-width: 760px) {
+    #pc-display { display: none; }
+    
     .logo {
         display: flex;
         align-items: center;

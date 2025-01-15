@@ -132,9 +132,31 @@ button:hover {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
-        width: 40vw;
+        height: 90vh;
+        width: 45vw;
+        padding: 40px;
+        margin: 20px;
         user-select: none;
+
+        .name-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 50px;
+        }
+
+        .message {
+            display: flex;
+            flex-direction: column;
+
+            h1 {
+                font-size: 50px;
+                margin: 0;
+            }
+            
+        }
 
         .store-name {
             display: flex;
